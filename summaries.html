@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Summaries</title>
+</head>
+<body>
+    <h1>Saved Summaries</h1>
+    <ul>
+        {% for summary in summaries %}
+            <li>
+                <strong>Article Index:</strong> {{ summary.num }}<br>
+                <strong>Summary:</strong> {{ summary.summary }}
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Back to Summarizer</a>
+</body>
+</html>

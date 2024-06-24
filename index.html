@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PubMed Article Summarizer</title>
+</head>
+<body>
+    <h1>PubMed Article Summarizer using GPT-3.5</h1>
+    <form method="POST" action="{{ url_for('summarize') }}">
+        <label for="file_type">Select CSV file:</label>
+        <select name="file_type" id="file_type">
+            <option value="Train">Train</option>
+            <option value="Validation">Validation</option>
+            <option value="Test">Test</option>
+        </select>
+        <br><br>
+        <label for="article_index">Select Article Index:</label>
+        <input type="number" id="article_index" name="article_index" min="0">
+        <br><br>
+        <input type="submit" value="Summarize">
+    </form>
+    <hr>
+    {% if original_text %}
+        <h2>Original Article</h2>
+        <p>{{ original_text }}</p>
+        <h2>Summary</h2>
+        <p>{{ summary_text }}</p>
+    {% endif %}
+    <br>
+    <a href="{{ url_for('summaries') }}">View All Summaries</a>
+</body>
+</html>
